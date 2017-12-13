@@ -1,0 +1,10 @@
+.DS_Store
+assets/scss/.sass-cache/*
+node_modules/
+bower_components/
+vendor/
+npm-debug.log
+.idea
+/archive-custom_type.php
+/single-custom_type.php
+/taxonomy-custom_cat.php

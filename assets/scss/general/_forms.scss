@@ -1,0 +1,53 @@
+/**
+ * base form styles
+ */
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="url"],
+input[type="month"],
+input[type="week"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+select,
+textarea {
+	padding: 0.5rem 1rem;
+	outline: none;
+	border: 1px solid rgba( $default-text-color, 0.2 );
+	border-radius: 3px;
+	background: $default-background-color;
+	font-size: $base-font-size;
+	font-family: $sans-serif;
+	margin-left: 1rem;
+	box-shadow: none;
+	-webkit-appearance: none;
+
+	&:hover {
+		border: 1px solid $primary-color;
+	}
+
+	&:focus {
+		outline: none;
+		border: 1px dotted $secondary-color;
+		background: $default-background-color;
+	}
+}
+
+input[type="submit"] {
+	font-size: $base-font-size;
+	font-family: $sans-serif;
+}
+
+
+// fixing some formidble pro stuff that they sneak in even when styles are off
+.frm_form_field.frm_left_container input:not([type=radio]):not([type=checkbox]), .frm_form_field.frm_left_container:not(.frm_dynamic_select_container) select, .frm_form_field.frm_left_container textarea, .frm_form_field.frm_left_container .wp-editor-wrap, .frm_form_field.frm_left_container .frm_opt_container, .frm_form_field.frm_left_container .frm_dropzone, .frm_form_field.frm_left_container .frm-g-recaptcha, .frm_form_field.frm_left_container .g-recaptcha, .frm_form_field.frm_left_container .chosen-container, .frm_form_field.frm_left_container .frm_combo_inputs_container, .frm_form_field.frm_right_container input:not([type=radio]):not([type=checkbox]), .frm_form_field.frm_right_container:not(.frm_dynamic_select_container) select, .frm_form_field.frm_right_container textarea, .frm_form_field.frm_right_container .wp-editor-wrap, .frm_form_field.frm_right_container .frm_opt_container, .frm_form_field.frm_right_container .frm_dropzone, .frm_form_field.frm_right_container .frm-g-recaptcha, .frm_form_field.frm_right_container .g-recaptcha, .frm_form_field.frm_right_container .chosen-container, .frm_form_field.frm_right_container .frm_combo_inputs_container {
+	max-width: 100%;
+}
+
+.frm_form_field.frm_left_container label.frm_primary_label {
+	max-width: 90%;
+}

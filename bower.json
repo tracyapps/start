@@ -1,0 +1,12 @@
+{
+  "name": "start",
+  "private": true,
+  "ignore": [],
+  "dependencies": {
+    "foundation-sites": ">=6.1"
+  },
+  "devDependencies": {
+    "motion-ui": "^1.2.2",
+    "breakpoint-sass": "~2.7.1"
+  }
+}

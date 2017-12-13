@@ -1,0 +1,204 @@
+//
+// Base
+//
+// What you will find here:
+// 01. General HTML element styles
+// 02. Global styles
+// 03. Typography
+
+
+// ---------------- 01. General HTML element styles
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-size: $base-font-size;
+	margin: 0;
+	background-color: $default-background-color;
+	color: $default-text-color;
+	font-family: $body-font;
+	font-style: normal;
+	font-weight: 300;
+	max-width: 100vw;
+	overflow-x: hidden;
+
+	-webkit-tap-highlight-color: #ff0;
+
+	@include phone-only {
+		font-size: calc( #{$base-font-size} / 1.3 );
+		line-height: 1.2;
+	}
+
+	@if $sticky-footer {
+		display: flex;
+		min-height: 100vh;
+		flex-direction: column;
+	}
+}
+.highlight,
+::selection {
+	background: #ff0;
+}
+
+@if $sticky-footer {
+	div.site-content {
+		flex: 1;
+	}
+}
+
+a {
+	color: $default-link-color;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $default-link-color-hover;
+	}
+}
+
+blockquote {
+	position: relative;
+	padding: 1rem;
+
+	&:before{
+		content: "\201C";
+
+		font-family: Georgia, serif;
+		font-size: 90px;
+		font-weight: bold;
+		opacity: 0.2;
+
+		position: absolute;
+		left: -1.5rem;
+		top: -1.5rem;
+	}
+
+}
+
+// ---------------- 02. Global styles
+
+.hide-this {
+	visibility: hidden;
+	height: 0;
+	width: 0;
+	position: absolute;
+
+	svg {
+		display: none;
+	}
+}
+
+.inverse {
+	@include inverse-colors;
+}
+
+.button,
+input[type="submit"],
+button {
+	@include button-primary;
+	text-shadow: none;
+	font-weight: bold;
+	border: none;
+	outline: none;
+
+	&.full {
+		display: block;
+		text-align: center;
+	}
+
+}
+
+.learn-more-button {
+	padding-bottom: 2rem;
+}
+
+.padding {
+	padding: 4rem;
+}
+
+.centered-text {
+	text-align: center;
+}
+a.no-style {
+	color: $default-text-color;
+	text-decoration: none;
+}
+
+
+
+
+// ---------------- 03. Typography
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: $header-font;
+	font-weight: 300;
+	text-transform: capitalize;
+	margin-bottom: 0.3em;
+}
+
+h1 {
+	font-size: $h1-font-size;
+
+	@include phone-only {
+		font-size: calc( #{$h1-font-size} / 1.3 );
+	}
+}
+
+h2 {
+	font-size: $h2-font-size;
+
+	@include phone-only {
+		font-size: calc( #{$h2-font-size} / 1.3 );
+	}
+}
+
+h3 {
+	font-size: $h3-font-size;
+
+	@include phone-only {
+		font-size: calc( #{$h3-font-size} / 1.3 );
+	}
+}
+
+h4 {
+	font-size: $h4-font-size;
+
+	@include phone-only {
+		font-size: calc( #{$h4-font-size} / 1.3 );
+	}
+}
+
+h5 {
+	font-size: $h5-font-size;
+
+	@include phone-only {
+		font-size: calc( #{$h5-font-size} / 1.3 );
+	}
+}
+
+h6 {
+	font-size: $h6-font-size;
+	margin: 1em 0 0 0;
+
+	@include phone-only {
+		font-size: calc( #{$h6-font-size} / 1.3 );
+	}
+}
+
+
+
+
+
+
+// ---------------- 04. SVG backgrounds / patterns
+
+.plain-bg {
+	background: $default-background-color;
+	@include default-colors;
+}

@@ -1,0 +1,372 @@
+// formatting for the page and home page "sections" (ACF layouts)
+
+.page-section {
+	padding: 0;
+	overflow: hidden;
+}
+.section-title {
+	margin-top: 0;
+	text-align: center;
+	padding: 4rem 10px 0 10px;
+	line-height: 1.2;
+
+	.type-none & {
+		margin: 0;
+		padding: 4rem 10px;
+	}
+
+	@include phone-only {
+		font-size: 1.5em;
+	}
+}
+
+.section-intro-text {
+	text-align: center;
+}
+
+.type-hero {
+	.hero {
+		min-height: 75vh;
+		background-size: cover;
+		background-position: 50% 20%;
+		position: relative;
+
+		.hero-text-container {
+			font-size: 1.5em;
+			padding: 7vw 1em 1em 1em;
+			margin: 0 1vw 0 60vw;
+			overflow: hidden;
+
+			p:first-child {
+				margin-top: 0;
+			}
+
+			@include tablet-down {
+				background: rgba( $default-background-color, 0.8 );
+			}
+		}
+
+		@include phone-only {
+			min-height: 60vh;
+			background-size: 200% auto;
+			background-repeat: no-repeat;
+
+			.hero-text-container {
+				margin: 30vh 0 0 0;
+				position: relative;
+				float: right;
+				padding: 0.5em;
+			}
+		}
+	}
+}
+
+.featured-blog-post-container,
+.text-image-grid-container {
+	display: flex;
+
+	@include phone-only {
+		display: block;
+	}
+
+	&.image-text {
+		flex-direction: row-reverse;
+
+	}
+
+	&.text-image {
+		.text-side {
+			.padding {
+				float: right;
+
+				@include phone-only {
+					float: none;
+				}
+			}
+		}
+	}
+
+	&.thirds {
+		> div {
+			flex: auto;
+
+			&.text-side {
+				width: $golden-large;
+
+				.padding {
+					max-width: 70ch;
+				}
+			}
+			&.image-side {
+				width: calc( 100vw - #{$golden-large} );
+			}
+		}
+	}
+
+	> div {
+		flex: 1;
+
+		&.text-side {
+			background: $default-background-color;
+			@include default-colors;
+			text-shadow: none;
+
+			h2 {
+				line-height: 1.2;
+
+				a {
+					color: $default-text-color !important;
+					text-decoration: none;
+				}
+			}
+
+			.padding {
+				max-width: 45ch;
+				padding-left: 2em;
+				padding-right: 2em;
+			}
+		}
+		
+		&.image-side {
+			background-size: cover;
+			background-position: 50% 50%;
+
+			@include phone-only {
+				min-height: 45vh;
+			}
+		}
+	}
+
+}
+
+/**
+ * WYSIWYG
+ */
+
+.type-wysiwyg {
+	.container {
+		padding: 4rem 0;
+
+		.padding {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}
+
+/**
+ * Columns section
+ */
+.type-three_col {
+
+	.columns-wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: stretch;
+		width: 90%;
+		margin: 0 auto;
+		padding: 0 0 6rem 0;
+
+		@include phone-only {
+			display: block;
+		}
+
+		.column {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			justify-content: flex-end;
+
+			@include phone-only {
+				width: 100%;
+				display: block;
+			}
+
+			> div {
+				padding: 0 3rem;
+				flex: 1;
+
+				@include phone-only {
+					display: block;
+				}
+
+				&:last-child {
+					align-self: center;
+					text-align: center;
+
+				}
+			}
+
+			.column-title {
+				margin: 0;
+				padding: 2rem 0 0 0;
+				line-height: 1.2;
+				text-align: center;
+			}
+
+			.column-body {
+				flex: 1;
+				flex-grow: 3;
+			}
+		}
+
+		// if $gutter-width variable_exists in vars, set the gutter between columns
+		@if variable_exists( gutter-width ) {
+			div.column ~ div.column {
+				margin-left: $gutter-width;
+
+				@include tablet-only {
+					margin-left: calc( #{$gutter-width} / 2 );
+				}
+			}
+		} @else {
+			div.column ~ div.column {
+				margin-left: 2rem;
+
+				@include tablet-only {
+					margin-left: 1rem;
+				}
+			}
+		}
+
+		@include phone-only {
+			div.column ~ div.column {
+				margin: 0;
+			}
+		}
+	}
+
+}
+
+/**
+ * Content collection
+ */
+
+.type-content_collection {
+
+	.content-collection {
+		display: flex;
+		justify-content: center;
+		align-items: baseline;
+		flex-wrap: wrap;
+		width: calc( 90% - 3ch );
+		margin: 0 auto;
+		padding: 0 0 3rem 0;
+
+		@include phone-only {
+			display: block;
+			width: 90%;
+		}
+
+		> article {
+			flex: 1;
+			min-width: 25ch;
+			max-width: 50ch;
+			margin: 1.5ch;
+
+			@include phone-only {
+				border-top: 1px dotted $default-text-color;
+				padding-top: 2rem;
+				margin: 0;
+			}
+
+			.article-header {
+				display: block;
+
+				img {
+					border-radius: 0 0 0 25px;
+				}
+			}
+
+			h2 {
+				margin: 0;
+				line-height: 1.2;
+				font-size: 4rem;
+
+				a {
+					text-decoration: none;
+				}
+			}
+
+			p.byline {
+				padding: 0;
+				font-size: 80%;
+			}
+		}
+	}
+}
+
+
+/**
+ * Page Grid
+ */
+
+.type-page_grid {
+	.page-grid-container {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+
+		> div {
+			flex: 1;
+			min-height: 40vh;
+			background-size: cover;
+			position: relative;
+			min-width: 400px;
+
+			@include phone-only {
+				flex: none;
+				display: block;
+				min-height: 30vh;
+				min-width: 0;
+				width: 100%;
+
+			}
+
+			:after {
+				content: '';
+				position: absolute;
+				pointer-events: none;
+				top: 15px;
+				bottom: 15px;
+				left: 15px;
+				right: 15px;
+				border: 2px solid rgba( $default-background-color, 0.5 );
+			}
+
+			a {
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-decoration: none;
+
+				&:hover {
+					strong {
+						background: rgba( $default-background-color, 0 );
+						color: $white;
+					}
+				}
+
+				strong {
+					text-align: center;
+					padding: 0.5em 1em;
+					font-size: 4rem;
+					margin: 5em 0;
+					background: rgba( $default-background-color, 1 );
+					-webkit-transition: all 0.75s ease 0s;
+					-moz-transition: all 0.75s ease 0s;
+					-o-transition: all 0.75s ease 0s;
+					transition: all 0.75s ease 0s;
+
+					@include phone-only {
+						margin: 3em 0;
+						font-size: 3rem;
+						padding: 0.4em 0.9em;
+					}
+				}
+			}
+		}
+	}
+}

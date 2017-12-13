@@ -1,0 +1,177 @@
+//
+// Utilities
+//
+// What you will find here:
+// 01. General-use classes & Accessibility
+// 02. Mixins
+//	-- Style mixins
+//	-- Responsive mixins
+//	-- Gradients
+// 03. Keyframes
+
+// ---------------- 01. General-use classes & Accessibility
+
+.assistive-text,
+.visuallyhidden,
+.screen-reader-text {
+	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0 !important;
+	border: 0 !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden;
+}
+
+
+// ---------------- 02. Mixins
+
+// Style mixins
+
+@mixin button-primary(
+		$color: $button-background-color,
+		$text: $button-text-color,
+		$color-hover: $button-background-color-hover,
+		$text-hover: $button-text-color-hover,
+		$transition-speed: $button-transition-speed,
+		$padding: $default-button-padding ) {
+	background: transparentize( $color, 0.1 );
+	padding: $padding;
+	text-align: center;
+	text-decoration: none;
+	color: $text !important;
+	border-radius: $border-radius;
+	display: inline-block;
+	border: 1px solid darken( $color, 20 );
+	text-shadow: 1px 1px 0 rgba( 0, 0, 0, 0.43 );
+	box-shadow: 0 0 3px transparentize( $color, 0.5 );
+	transition: all $transition-speed ease-in-out;
+
+	&:hover,
+	&:focus,
+	&:visited:hover {
+		background: $color-hover;
+		color: $text-hover !important;;
+	}
+}
+
+
+@mixin inverse-colors(
+		$text: $inverse-text-color,
+		$link: $inverse-link-color,
+		$link-hover: $inverse-link-color-hover ) {
+	color: $text;
+	a,
+	a:visited {
+		color: $link;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: $link-hover;
+		}
+
+		&.button {
+			&:hover {
+				color: $text !important;
+			}
+		}
+	}
+
+	svg {
+		fill: $text !important;
+	}
+
+}
+
+@mixin default-colors {
+	@include inverse-colors( $default-text-color, $default-link-color, $default-link-color-hover );
+	text-shadow: none;
+}
+
+// Responsive mixins
+// using breakpoint, but helping readability
+
+@mixin phone-only {
+	@include breakpoint( $phone ) { @content; }
+}
+
+@mixin tablet-only {
+	@include breakpoint( $tablet ) { @content; }
+}
+
+@mixin tablet-portrait {
+	@include breakpoint( $tablet-portrait ) { @content; }
+}
+
+@mixin tablet-landscape {
+	@include breakpoint( $tablet-landscape ) { @content; }
+}
+
+@mixin desktop-only {
+	@include breakpoint( $desktop ) { @content; }
+}
+
+@mixin large-desktop {
+	@include breakpoint( $large-desktop ) { @content; }
+}
+
+@mixin tablet-down {
+	@include breakpoint( $tablet-portrait-down ) { @content; }
+}
+
+@mixin tablet-up {
+	@include breakpoint( $tablet-landscape-up ) { @content; }
+}
+
+@mixin phone-landscape {
+	@include breakpoint( $phone-landscape ) { @content; }
+}
+
+
+// Gradients
+// from https://webgradients.com
+
+@mixin plum-gradient {
+	background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+@mixin grey-purple-gradient {
+	background-image: linear-gradient(to top, #505285 0%, #585e92 12%, #65689f 25%, #7474b0 37%, #7e7ebb 50%, #8389c7 62%, #9795d4 75%, #a2a1dc 87%, #b5aee4 100%);
+}
+
+@mixin dark-aqua-gradient {
+	background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
+
+@mixin dark-blue-gradient {
+	background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+}
+
+@mixin medium-blue-gradient {
+	background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+}
+
+@mixin light-blue-gradient {
+	background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+}
+
+@mixin green-gradient {
+	background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+}
+
+@mixin orange-gradient {
+	background-image: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
+}
+
+@mixin sunset-gradient {
+	background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+}
+
+@mixin light-grey-gradient {
+	background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+
+
+// ---------------- 03. Keyframes
+
