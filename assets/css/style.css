@@ -88,7 +88,6 @@ blockquote {
     display: none; }
 
 .inverse {
-  background: #414141;
   color: #fff; }
   .inverse a,
   .inverse a:visited {
@@ -199,7 +198,6 @@ h6 {
 
 .plain-bg {
   background: #F2F2F2;
-  background: #F2F2F2;
   color: #414141;
   text-shadow: none; }
   .plain-bg a,
@@ -220,6 +218,19 @@ h6 {
   width: 90%;
   margin: 0 auto;
   max-width: 1150px; }
+
+@media (min-width: 900px) {
+  .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+  .main-column {
+    width: 63.8%;
+    padding-right: 30px; }
+  .secondary-column {
+    width: 36.2%;
+    padding-left: 30px; } }
 
 img {
   display: block;
@@ -551,20 +562,19 @@ footer.site-footer {
     flex: auto; }
     .featured-blog-post-container.thirds > div.text-side,
     .text-image-grid-container.thirds > div.text-side {
-      width: 63.8vw; }
+      width: 63.8%; }
       .featured-blog-post-container.thirds > div.text-side .padding,
       .text-image-grid-container.thirds > div.text-side .padding {
         max-width: 70ch; }
     .featured-blog-post-container.thirds > div.image-side,
     .text-image-grid-container.thirds > div.image-side {
-      width: calc( 100vw - 63.8vw); }
+      width: calc( 100vw - 63.8%); }
   .featured-blog-post-container > div,
   .text-image-grid-container > div {
     -ms-flex: 1;
     flex: 1; }
     .featured-blog-post-container > div.text-side,
     .text-image-grid-container > div.text-side {
-      background: #F2F2F2;
       background: #F2F2F2;
       color: #414141;
       text-shadow: none;

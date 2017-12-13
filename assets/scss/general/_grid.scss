@@ -13,7 +13,21 @@
 	max-width: $max-page-width;
 
 	p {
-
+		
 	}
 }
 
+@include tablet-up {
+	.row {
+		display: flex;
+		justify-content: space-between;
+	}
+	.main-column {
+		width: $golden-large;
+		padding-right: $gutter-width;
+	}
+	.secondary-column {
+		width: ( 100% - $golden-large );
+		padding-left: $gutter-width;
+	}
+}
