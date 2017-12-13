@@ -27,5 +27,5 @@ Not much, just a rainbow colored unicorn and a basket of kittens.
 - Using the command line, navigate to your theme directory
 - Run npm install
 - Run gulp to confirm everything is working
-
-[Read more about how Gulp is used with this theme.](http://jointswp.com/docs/gulp/)
+- ...
+- PROFIT!
