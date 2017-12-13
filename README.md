@@ -1,25 +1,26 @@
-# The start
+# Start
 
-Starter theme for [Corner start Media](http://cornerstart.media). 
-Currently using Foundation 6.3.
+Starter theme for [tapps](http://tapps.design) to use (and I suppose others can use it too at some point).
+
 
 ### What is the start?
-The start is a blank WordPress theme built with Foundation 6, giving you all the power and flexibility you need to build complex, mobile friendly websites without having to start from scratch.
-
-Starting its humble life as a fork of the popular theme Bones, start is now the foundation of thousands of websites across the globe.
+The start is a blank WordPress theme fully equipped with ACF site options & page sections to make things easy.
 
 ### What comes with start?
-start comes pre-baked with all of the great features that are found in the Foundation framework – simply put, if it works in Foundation, it will work in the start. The theme also includes:
+start comes pre-baked with some cool things.The theme also includes:
 
-- Foundation Navigation Options
-- Motion-UI
-- Grid archive templates
+- Site options (ACF)
+- Portfolio post type
+- People post type
+- Landing page creator
 - Translation Support
 - Bower and Gulp Support
+- SVG optimizer / sprite injector
+- Browsersync
 - And much, much more!
 
 ### What tools do I need to use start?
-You can use whatever you want – seriously. While the Sass version comes with Bower and Gulp support out of the box, you aren’t required to use those by any means. You can use CodeKit, Grunt, Compass or nothing at all. It’s completely up to you how you decide to build you theme – start won’t get in the way of your workflow.
+Not much, just a rainbow colored unicorn and a basket of kittens.
 
 ### Getting Started With Gulp
 - Install [node.js](https://nodejs.org).
