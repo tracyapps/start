@@ -1,10 +1,10 @@
 {
-  "name": "start-sass",
+  "name": "start-theme",
   "version": "4.0.0",
-  "description": "A WordPress starter theme by Corner start Media",
+  "description": "A WordPress starter theme by tracy apps design, LLC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JeremyEnglert/start.git"
+    "url": "https://github.com/tracyapps/start.git"
   },
   "author": "Tracy Apps",
   "license": "GPL-2.0 AND MIT",
