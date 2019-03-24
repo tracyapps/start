@@ -1,0 +1,29 @@
+/**
+ * Block: image_text_row
+ */
+
+.block-image_text_row {
+	display: block;
+
+	@include tablet-up {
+		display: flex;
+		align-content: stretch;
+
+		&.text_image {
+			flex-direction: row;
+		}
+		&.image_text {
+			flex-direction: row-reverse;
+		}
+
+		> .text,
+		> .image {
+			width: 49%;
+		}
+
+		> .image {
+			flex: 1;
+			background-size: cover;
+		}
+	}
+}

@@ -47,6 +47,7 @@ function start_custom_post_types() {
 		'has_archive'         => true,
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
+		//'show_in_rest'		=> true,
 		'capability_type'     => 'post',
 	);
 

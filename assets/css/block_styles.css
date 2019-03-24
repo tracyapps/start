@@ -1,0 +1,53 @@
+/*
+* Scut, a collection of Sass utilities
+* to ease and improve our implementations of common style-code patterns.
+* v1.4.0
+* Docs at http://davidtheclark.github.io/scut
+*/
+.assistive-text,
+.visuallyhidden,
+.screen-reader-text {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden; }
+
+/**
+ *  global styles for start-made blocks in edit mode
+ */
+.wp-block {
+  max-width: 90%; }
+
+.editor-block-list__layout .editor-block-list__block .editor-block-list__block-edit:before {
+  border: 1px solid rgba(122, 124, 189, 0.4); }
+
+.padding {
+  padding: 10px; }
+
+/**
+ * Block: image_text_row
+ */
+.block-image_text_row {
+  display: block; }
+  @media (min-width: 900px) {
+    .block-image_text_row {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-line-pack: stretch;
+      align-content: stretch; }
+      .block-image_text_row.text_image {
+        -ms-flex-direction: row;
+        flex-direction: row; }
+      .block-image_text_row.image_text {
+        -ms-flex-direction: row-reverse;
+        flex-direction: row-reverse; }
+      .block-image_text_row > .text,
+      .block-image_text_row > .image {
+        width: 49%; }
+      .block-image_text_row > .image {
+        -ms-flex: 1;
+        flex: 1;
+        background-size: cover; } }

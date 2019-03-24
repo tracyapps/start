@@ -50,10 +50,6 @@ body {
       line-height: 1.2; } }
 
 .highlight,
-::-moz-selection {
-  background: #ff0; }
-
-.highlight,
 ::selection {
   background: #ff0; }
 

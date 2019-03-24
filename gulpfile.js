@@ -103,7 +103,7 @@ gulp.task( 'browsersync', function () {
 
 	browserSync.init( files, {
 		// Replace with URL of your local site
-		proxy: "http://local.wordpress.dev",
+		proxy: "http://start.local",
 	} );
 
 	gulp.watch( './assets/scss/**/*.scss', ['styles'] );
