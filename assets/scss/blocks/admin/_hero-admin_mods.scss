@@ -1,0 +1,28 @@
+
+.block-hero {
+	&.hero_size-full {
+		min-height: 500px;
+
+		.hero-content {
+			min-height: 500px;
+		}
+	}
+	&.hero_size-half {
+		min-height: 300px;
+
+		.hero-content {
+			min-height: 300px;
+		}
+	}
+
+	&.text-light {
+		h1 {
+			color: $white;
+		}
+	}
+	&.text-dark {
+		h1 {
+			color: $dark;
+		}
+	}
+}

@@ -1,6 +1,8 @@
 @import "variables";
 @import "bower_components/breakpoint-sass/stylesheets/breakpoint";
 @import "node_modules/scut/dist/scut";
+@import "https://pro.fontawesome.com/releases/v5.8.1/css/all.css";
 @import "general/utilities";
-@import "blocks/all--edit";
-@import "blocks/image_text_row--edit";
+@import "blocks/blocks";
+@import "blocks/admin/all";
+@import "blocks/admin/hero-admin_mods";

@@ -1,0 +1,46 @@
+/**
+ *  global styles for start-made blocks in edit mode
+ */
+
+// fixing the damn gutenberg crap that's annoying me
+.wp-block {
+	max-width: 95%;
+	//padding-left: 30px;
+}
+.editor-block-list__layout {
+	.editor-block-list__block {
+		.editor-block-list__block-edit {
+			&:before {
+				border: 1px solid rgba( $blue-purple, 0.4 );  // always show light boarder around all blocks
+			}
+		}
+		/*.editor-block-list__insertion-point-inserter:not(:hover) {
+			opacity: 0.2; // keep the "add block" icon above a block slightly visible always.
+			.editor-inserter__toggle {
+				color: $dark;
+			}
+		}*/
+	} /* /.editor-block-list__block */
+	.editor-block-mover {
+		opacity: 1;  // always show the move handle on the left of the block
+	}
+} /* /.editor-block-list__layout */
+
+.edit-post-visual-editor {
+	.editor-default-block-appender {
+		.editor-inserter__toggle,
+		.editor-inserter__toggle:not([aria-expanded=true]) {
+			opacity: 0.4;  // always show the little plus icon to add a block
+		}
+	}
+} /* /.edit-post-visual-editor */
+
+.editor-post-title__block .editor-post-title__input {
+	border-color: rgba( $blue-purple, 0.4 );
+}
+
+
+// global style-y things
+.padding {
+	padding: 10px;
+}
