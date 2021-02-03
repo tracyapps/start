@@ -4,33 +4,22 @@
 /************* DASHBOARD WIDGETS *****************/
 // Disable default dashboard widgets
 function disable_default_dashboard_widgets() {
-	// Remove_meta_box('dashboard_right_now', 'dashboard', 'core');    // Right Now Widget
+	// Remove_meta_box('dashboard_right_now', 'dashboard', 'core');      // Right Now Widget
 	remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'core' ); // Comments Widget
 	remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'core' );  // Incoming Links Widget
 	remove_meta_box( 'dashboard_plugins', 'dashboard', 'core' );         // Plugins Widget
-
-	// Remove_meta_box('dashboard_quick_press', 'dashboard', 'core');  // Quick Press Widget
+	// Remove_meta_box('dashboard_quick_press', 'dashboard', 'core');    // Quick Press Widget
 	remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'core' );   // Recent Drafts Widget
-	remove_meta_box( 'dashboard_primary', 'dashboard', 'core' );         //
-	remove_meta_box( 'dashboard_secondary', 'dashboard', 'core' );       //
-
-	// Removing plugin dashboard boxes
-	remove_meta_box( 'yoast_db_widget', 'dashboard', 'normal' );         // Yoast's SEO Plugin Widget
-
+	remove_meta_box( 'dashboard_primary', 'dashboard', 'core' );         // WordPress.com Blog
+	remove_meta_box( 'dashboard_secondary', 'dashboard', 'core' );       // Other WordPress News
 }
 
-/*
-For more information on creating Dashboard Widgets, view:
-http://digwp.com/2010/10/customize-wordpress-dashboard/
-*/
-
-// Calling all custom dashboard widgets
+// Add any custom dashboard widgets
 function start_custom_dashboard_widgets() {
 	wp_add_dashboard_widget( 'start_rss_dashboard_widget', __( 'Custom RSS Feed (Customize in admin.php)', 'start' ),
 		'start_rss_dashboard_widget' );
 	/*
-	Be sure to drop any other created Dashboard Widgets
-	in this function and they will all load.
+	Drop any other created Dashboard Widgets in this function and they will all load.
 	*/
 }
 
@@ -42,7 +31,7 @@ add_action( 'wp_dashboard_setup', 'start_custom_dashboard_widgets' );
 /************* CUSTOMIZE ADMIN *******************/
 // Custom Backend Footer
 function start_custom_admin_footer() {
-	_e( '<span id="footer-thankyou">Developed by <a href="#" target="_blank">Your Site Name</a></span>.', 'start' );
+	_e( '<span id="footer-thankyou">Developed by <a href="http://tapps.design" target="_blank">tapps</a></span>.', 'start' );
 }
 
 // adding it to the admin area
