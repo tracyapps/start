@@ -10,6 +10,34 @@ $background_choices_available = array (
 	'bright'	=> 'Bright background',
 );
 
+$color_theme_list = array (
+	'bold'	=> 'Bold',
+	'chocolate-bunny'	=> 'Chocolate Bunny',
+	'country-inn'	=> 'Country Inn',
+	'earthy' 		=> 'Earthy',
+	'farmstead' 		=> 'Farmstead',
+	'green-field'	=> 'Green Field',
+	'harvest'	=> 'Harvest',
+	'neutral-dark' 		=> 'Neutral - Dark',
+	'neutral-light' 		=> 'Neutral - Light',
+	'neutral-trend' 		=> 'Neutral Trend',
+	'neutral-yellow' 		=> 'Neutral Yellow',
+	'sale-at-the-gap' => 'Sale at the Gap',
+	'spice-late'	=> 'Spice Late',
+	'spice-late-dark'	=> 'Spice Late - Dark',
+	'trendy-rainbow' => 'Trendy Rainbow',
+	'vintage-rocket'	=> 'Vintage Rocket',
+);
+
+$typography_theme_list = array (
+	'grunge' 		=> 'Grunge/typewriter',
+	'handwriting' 	=> 'Handwriting/casual',
+	'light'			=> 'Trendy thin',
+	'modern'		=> 'Modern',
+	'serif'			=> 'Serif/traditional',
+);
+
+
 // settings on where the 'sections' are active throughout the site
 $where_sections_are_active = array (
 	array (
@@ -32,8 +60,98 @@ $where_sections_are_active = array (
 
 if( function_exists('acf_add_local_field_group') ):
 
-	//***************************************   PERSON DETAILS
+	//***************************************   Extra page heading fields
+	acf_add_local_field_group(array(
+		'key' => 'group_619da179c7533',
+		'title' => 'Page header',
+		'fields' => array(
+			array(
+				'key' => 'field_619da184999bb',
+				'label' => 'Override page title?',
+				'name' => 'override_page_title',
+				'type' => 'true_false',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'message' => 'yes',
+				'default_value' => 0,
+				'ui' => 0,
+				'ui_on_text' => '',
+				'ui_off_text' => '',
+			),
+			array(
+				'key' => 'field_619da20e999bc',
+				'label' => 'Custom page title',
+				'name' => 'custom_page_title',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field' => 'field_619da184999bb',
+							'operator' => '==',
+							'value' => '1',
+						),
+					),
+				),
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'maxlength' => '',
+			),
+			array(
+				'key' => 'field_619da23e999bd',
+				'label' => 'Page tagline',
+				'name' => 'page_tagline',
+				'type' => 'textarea',
+				'instructions' => 'Short block of text under the page title. Keep this short!',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => 4,
+				'new_lines' => 'wpautop',
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'page',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'side',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => true,
+		'description' => '',
+		'show_in_rest' => 0,
+	));
 
+	//***************************************   PERSON DETAILS
 	acf_add_local_field_group(array (
 		'key' => 'group_5890531278963',
 		'title' => 'Person Details',
@@ -1876,7 +1994,6 @@ if( function_exists('acf_add_local_field_group') ):
 	));
 
 	//***************************************   PERSON CONTACT
-
 	acf_add_local_field_group(array (
 		'key' => 'group_58908d6789994',
 		'title' => 'Person Contact',
@@ -2023,7 +2140,6 @@ if( function_exists('acf_add_local_field_group') ):
 	));
 
 	//***************************************   SITE OPTIONS
-
 	acf_add_local_field_group(array (
 		'key' => 'group_57f7c88c9aa18',
 		'title' => 'Site Options',
@@ -2044,8 +2160,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'placement' => 'top',
 				'endpoint' => 0,
 			),
-			/*
-			 array(
+			array (
 				'key' => 'field_5a1f1b703a28e',
 				'label' => 'Site Logo',
 				'name' => 'site_logo',
@@ -2069,7 +2184,62 @@ if( function_exists('acf_add_local_field_group') ):
 				'max_size' => '',
 				'mime_types' => 'jpg, gif, svg, png',
 			),
-			*/
+			// advanced settings - start
+			array(
+				'key' => 'field_618adc333ad4b',
+				'label' => 'Advanced',
+				'name' => 'advanced_logo',
+				'type' => 'checkbox',
+				'instructions' => 'Advanced logo settings',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '100',
+					'class' => '',
+					'id' => '',
+				),
+				'choices' => array(
+					'advanced_yes' => 'enable',
+				),
+				'allow_custom' => 0,
+				'default_value' => array(
+				),
+				'layout' => 'horizontal',
+				'toggle' => 0,
+				'return_format' => 'value',
+				'save_custom' => 0,
+			),
+			array(
+				'key' => 'field_618add103ad4c',
+				'label' => 'SVG code embed',
+				'name' => 'svg_code_embed',
+				'type' => 'acfe_code_editor',
+				'instructions' => 'If you want to override the logo image embed with actual embeded SVG code, this is where you put that. otherwise uncheck the option and it goes back to the default values above.',
+				'required' => 0,
+				'conditional_logic' => array(
+					array(
+						array(
+							'field' => 'field_618adc333ad4b',
+							'operator' => '!=empty',
+						),
+					),
+				),
+				'wrapper' => array(
+					'width' => '100',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'mode' => 'text/html',
+				'lines' => 1,
+				'indent_unit' => 4,
+				'maxlength' => '',
+				'rows' => 12,
+				'max_rows' => '75',
+				'return_entities' => 0,
+			),
+			// advanced settings - end
 			array (
 				'key' => 'field_57f7c92167a96',
 				'label' => 'Default Featured Image',
@@ -2175,25 +2345,73 @@ if( function_exists('acf_add_local_field_group') ):
 				'append' => '',
 				'maxlength' => '',
 			),
-			array(
-				'key' => 'field_5a1dd45d5edcf',
-				'label' => 'Disable page sections on regular pages',
-				'name' => 'disable_sections_on_pages',
-				'type' => 'true_false',
-				'instructions' => 'Check this box to remove the "page sections" editing capabilities on all inside pages of the site. The sections capabilities will then only show up on the front homepage (if a static page is used for the front page) and all inside pages will use the default WordPress page editor.',
+
+			array (
+				'key' => 'field_5a1d8a764a977',
+				'label' => 'Theme Design',
+				'name' => '',
+				'type' => 'tab',
+				'instructions' => '',
 				'required' => 0,
 				'conditional_logic' => 0,
 				'wrapper' => array(
-					'width' => '100',
+					'width' => '',
 					'class' => '',
 					'id' => '',
 				),
-				'message' => 'Use the default WordPress page editor',
-				'default_value' => 0,
-				'ui' => 0,
-				'ui_on_text' => '',
-				'ui_off_text' => '',
+				'placement' => 'top',
+				'endpoint' => 0,
 			),
+			// color theme picker
+			array (
+				'key' => 'field_12358ec5338e2191',
+				'label' => 'Color Theme',
+				'name' => 'color_theme',
+				'type' => 'select',
+				'instructions' => '',
+				'required' => 0,
+				'wrapper' => array (
+					'width' => '60',
+					'class' => '',
+					'id' => '',
+				),
+				'choices' => $color_theme_list,
+				'default_value' => array (
+					0 => 'none',
+				),
+				'allow_null' => 0,
+				'multiple' => 0,
+				'ui' => 0,
+				'ajax' => 0,
+				'return_format' => 'value',
+				'placeholder' => '',
+			),
+			// typography theme picker
+			array (
+				'key' => 'field_12358ec5338e2345',
+				'label' => 'Typography',
+				'name' => 'typography_theme',
+				'type' => 'select',
+				'instructions' => '',
+				'required' => 0,
+				'wrapper' => array (
+					'width' => '60',
+					'class' => '',
+					'id' => '',
+				),
+				'choices' => $typography_theme_list,
+				'default_value' => array (
+					0 => 'none',
+				),
+				'allow_null' => 0,
+				'multiple' => 0,
+				'ui' => 0,
+				'ajax' => 0,
+				'return_format' => 'value',
+				'placeholder' => '',
+			),
+
+
 			array (
 				'key' => 'field_57fbf37a6e7ea',
 				'label' => 'Text',
@@ -2430,7 +2648,6 @@ if( function_exists('acf_add_local_field_group') ):
 	));
 
 	//***************************************   PORTFOLIO DETAILS
-
 	acf_add_local_field_group(array (
 		'key' => 'group_590bf408c8e1b',
 		'title' => 'Portfolio Details',
@@ -2606,7 +2823,6 @@ if( function_exists('acf_add_local_field_group') ):
 	));
 
 	//***************************************   LANDING PAGE SECTIONS
-
 	acf_add_local_field_group(array (
 		'key' => 'group_597b43a06a7fb',
 		'title' => 'Landing Page Sections',
