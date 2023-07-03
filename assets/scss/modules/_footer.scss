@@ -1,23 +1,12 @@
 
 footer.site-footer {
-	background: $footer-background-color;
 	padding: 2rem 0;
-	color: $footer-text-color;
-
-	a {
-		color: $footer-link-color;
-
-		&:hover {
-			color: $footer-link-color-hover;
-		}
-	}
 
 	.footer-widget-area {
 
 		display: flex;
 		align-items: stretch;
 		justify-content: space-between;
-
 
 		@include tablet-down {
 			display: block;
@@ -28,14 +17,12 @@ footer.site-footer {
 			margin: 2em 0;
 			padding: 2em 1em 2em 1.2em;
 
-			border-right: 1px solid rgba( $footer-text-color, 0.3 );
 
 			@include tablet-down {
 				max-width: 100%;
 				display: block;
 				clear: both;
 				border-right: none;
-				border-bottom: 1px solid rgba( $footer-text-color, 0.3 );
 				text-align: center;
 			}
 
@@ -95,10 +82,9 @@ footer.site-footer {
 		}
 	}
 
-	.container {
-		p {
-			padding: 0;
-		}
+	p {
+		width: 90%;
+		max-width: none;
 	}
 
 }

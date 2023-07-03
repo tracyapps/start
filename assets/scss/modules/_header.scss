@@ -1,114 +1,272 @@
+
+#full_page_sticky_container {
+	position: relative;
+}
+
 .site-header {
-	background: $header-background-color;
+	position: sticky;
+	top: 0;
+	max-width: 100vw;
+	z-index: 999999;
 
-	.main-navigation {
+	.site-header-content-container {
+		display: flex;
+		align-items: center;
+		position: absolute;
+		min-height: 4em;
+		width: 100%;
+		padding: 2px 2rem;
+		transition: all $button-transition-speed ease-in-out;
+		background: var(--header--background_color);
+		color: var(--header--nav_text_color);
 
-		text-transform: uppercase;
+		@include phone-only {
+			padding: 2px 1rem;
+		}
+	}
+	&.smaller .site-header-content-container {
+		background-color: var(--smaller_header--background_color);
+		color: var(--smaller_header--nav_text_color);
+	}
 
-		.mobile-menu-toggle {
-			display: none;
+
+	.site-logo {
+		padding: 5px 15px;
+		color: var(--header--nav_text_color);
+
+		a {
+			color: currentColor;
+			text-decoration: none;
 		}
 
-		ul {
+		img {
+			height: auto;
+			width: 80vw;
+			min-width: 120px;
+			max-width: 250px;
+		}
+
+		h1 {
 			margin: 0;
-			padding: 0.6em 1em;
+		}
+
+		svg {
+			width: 50vw;
+			min-width: 150px;
+			max-width: 250px;
+			transition: all 250ms ease-in-out;
+			fill: var(--header--nav_text_color);
+		}
+	}
+
+	&.smaller .site-logo {
+
+		a {
+			color: var(--smaller_header--nav_text_color);
+			text-decoration: none;
+		}
+		h1 {
+			margin: 0;
+			font-size: calc( var(--typography-h1_size) * 0.7 );
+		}
+		svg {
+			max-width: 150px;
+			fill: var(--smaller_header--nav_text_color);
+		}
+	}
+
+	.main-navigation {
+		text-align: center;
+		position: relative;
+		flex: 1;
+		z-index: 9999999;
+		display: flex;
+		line-height: 1;
+		align-items: baseline;
+
+		button {
+			align-self: stretch;
+			padding: 0 .76em 0 1.1em;
+			transition: all $button-transition-speed ease-in-out;
+			outline: 0;
+			border: 0;
+			font-size: 0.9rem;
+
+			&.hidden {
+				transition: none;
+				width: 0;
+				padding: 0;
+				overflow: hidden;
+			}
+
+			&:after {
+				content: attr(count);
+				display: inline-flex;
+				width: 20px;
+				height: 20px;
+				align-items: center;
+				justify-content: center;
+				background-color: var(--nav_item_hover--background_color);
+				color: var(--nav_item_hover--text_color);
+				box-shadow: -1px 0 2px 0 rgba(0,0,0,0.9);
+				border-radius: 50%;
+				font-size: 11px;
+				line-height: 11px;
+				//margin: -0.25rem 0 0 0.3rem;
+				margin: 0 -0.25em 0 0.4em;
+				//margin-right: -5em;
+				//margin-right: calc(-1rem + -8px);
+
+			}
+		}
+		ul.links {
+			margin-bottom: -2rem;
+			margin-top: 0;
+			padding: 0 0 0 2rem;
 			display: flex;
 			align-items: center;
+			justify-content: flex-end;
+			flex: 1;
+			//overflow: hidden;
 			transition: all $button-transition-speed ease-in-out;
 
 
 			li {
 				list-style-type: none;
-				flex: 1;
-
-				a {
-					transition: all $button-transition-speed ease-in-out;
-				}
-
-			}
-
-
-		}
-		@include tablet-down {
-
-			.mobile-menu-toggle {
-				display: block;
-			}
-
-			ul {
-				flex-direction: column;
-				height: 0;
-				margin: 0;
+				margin: 0 1px 0 0;
 				padding: 0;
-				position: relative;
-				z-index: 9999;
-				display: flex;
-				overflow: hidden;
 
 
-				li {
-					width: 100%;
+				&.menu-item-has-children {
+					position: relative;
 
-					a {
-						line-height: 3;
+					&:hover,
+					&:focus,
+					&:target {
+						> ul.menu {
+							max-height: 90vh;
+							background-color: var(--smaller_header--background_color);
+						}
 					}
 
-				}
+					> ul.menu {
+						max-height: 0;
+						overflow: hidden;
+						position: absolute;
+						flex-direction: column;
+						align-content: stretch;
+						font-size: 90%;
+						width: 100%;
+						padding: 0.25em;
+						transition: max-height 750ms ease-in-out;
 
-				&.open {
-					width: 100%;
-					max-width: 100vw;
-					display: flex;
-					height: calc( 100vh - 6rem );
+						li {
+							display: block;
+							width: 100%;
 
-					li {
-						flex: 1;
+							a {
+								display: block;
+								color: var(--smaller_header--nav_text_color);
+							}
+						}
 					}
 				}
 			}
-
 		}
-		a {
-
-			&:hover {
-
+		ul.hidden-links {
+			position: absolute;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			right: 0;
+			top: 110%;
+			a {
+				color: var(--smaller_header--nav_text_color);
 			}
-		}
-	}
 
-	&.smaller {
+			li {
+				padding: 0;
+				margin-bottom: 1px;
+				background-color: var(--smaller_header--background_color);
+			}
 
-	}
-
-}
-.site-logo {
-
-
-}
-
-.smaller {
-	.site-logo {
-
-	}
-
-}
-
-@include tablet-up {
-	.home {
-		.site-header {
-			.main-navigation {
+			&.hidden {
+				display: none;
+			}
+			li.menu-item-has-children {
 				ul {
-					background-color: rgba( $header-background-color, 0 );
-
-					a {
-
-					}
+					padding: 0;
+					list-style: none;
+					border-left: 5px solid var(--header_dark--background_color);
+					border-top: 1px dotted var(--header_dark--background_color);
+					border-bottom: 1px solid var(--header_dark--background_color);
 				}
 			}
+		}
 
-			&.smaller {
+
+
+		a {
+			display: block;
+			padding: 0.5em 1.05em;
+			text-decoration: none;
+			transition: all $button-transition-speed ease-in-out;
+			text-align: left;
+			color: var(--header--nav_text_color);
+
+			&:hover,
+			&:focus,
+			&:target {
+				background-color: var(--nav_item_hover--background_color);
+				color: var(--nav_item_hover--text_color);
+			}
+
+		}
+		.current_page_item {
+			a {
+				//	border-bottom: 1px solid currentColor;
+			}
+		}
+		#menu-home {
+			svg {
+				fill: currentColor;
+				height: 1em;
+				width: 1em;
 
 			}
 		}
+
 	}
+
+	&.smaller .main-navigation {
+		color: var(--smaller_header--nav_text_color);
+
+		a {
+			color: currentColor;
+
+			&:hover,
+			&:focus,
+			&:target {
+				background-color: var(--nav_item_hover--background_color);
+				color: var(--nav_item_hover--text_color);
+			}
+
+		}
+
+	}
+}
+
+.page_featured_image_container:after {
+	bottom: 0;
+	content: "";
+	left: 0;
+	opacity: .6;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background-color: var(--header_dark--background_color);
+}
+
+.no-featured-image .page_heading_area {
+	background-color: var(--header_dark--background_color);
 }

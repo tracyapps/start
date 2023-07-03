@@ -1,69 +1,21 @@
 //
-// Variables
+// Global Variables
 //
-// 01. Colors
-// 02. Grid and layout
-// 03. Font sizes & typography
-// 04. Decorative details
-// 05. Form layout options
+// (colors & typography changed to CSS vars and theme options)
+//
+// 01. Grid & Layout
+// 02. Breakpoints
+// 03. Decorative & Animation
 
-// ---------------- 01. Colors
+// ---------------- 01. Grid & Layout
 
-// Colors used:
-$white: #fff;
-$offwhite: #F2F2F2;
-$dark:  #414141;
-$gold:	#e1c43b;
-
-
-$orange:	#F27143;
-$yellow:	#F2C74D;
-$green:		#85ED3F;
-$light-blue: #B3DFD8;
-$blue:		#478AD4;
-$slate:		#496C85;
-$blue-purple:#7A7CBD;
-$purple: 	#564d95;
-
-
-// Define branding
-$primary-color:            	$orange;
-$secondary-color:          	$dark;
-$default-background-color: 	$offwhite;
-$default-text-color:       	$dark;
-$default-link-color:       	$blue-purple;
-$default-link-color-hover: 	$purple;
-$inverse-background-color: 	$dark;
-$inverse-text-color:       	$white;
-$inverse-link-color:       	$light-blue;
-$inverse-link-color-hover: 	$offwhite;
-$header-background-color: 	rgba( $white, 0.5 );
-$footer-background-color:  	$slate;
-$footer-text-color:			$offwhite;
-$footer-link-color:			$light-blue;
-$footer-link-color-hover: 	$offwhite;
-
-// Define elements
-
-// Primary / Default button:
-$button-background-color:       $light-blue;
-$button-background-color-hover: transparent;
-$button-text-color:             $dark;
-$button-text-color-hover:       $dark;
-$default-button-padding:        1rem 2rem;
-
-
-// ---------------- 02. Grid, layout & breakpoints
-
-// Layout & grid
-$max-page-width: 1150px; // use class "container" around your content for this to work.
-$page-padding:   15rem; // use class "container" around your content for this to work.
-$mobile-page-padding: 2rem; // smaller padding for the container on mobile
 $gutter-width:   30px;   // used in sections
 $sticky-footer:  true;   // change to "false" to remove and footer will just follow the content size.
 $golden-large:	63.8%;
+$max-text-line-width: 850px;
 
-// Breakpoints
+
+// ---------------- 02. Breakpoints
 // (concept borrowed from http://tapps.us/breakpoint-article )
 
 // Define breakpoints
@@ -85,67 +37,8 @@ $tablet-portrait-down: max-width $breakpoint-medium;
 $tablet-landscape-up:  $breakpoint-medium;
 
 
-// ---------------- 03. Font sizes & typography
+// ---------------- 03. Decorative & Animation
 
-//
-// Font Variables
-
-$serif: 'Quattrocento', serif;
-$sans-serif: 'Work Sans', sans-serif;
-
-$header-font: $sans-serif;
-$body-font: $serif;
-
-// The font size set on the root html element.
-$base-font-size: 22px;
-
-// The base line height determines the basic unit of vertical rhythm.
-$base-line-height: 24px;
-
-// The length unit in which to output vertical rhythm values.
-// Supported values: px, em, rem.
-$base-unit: 'rem';
-
-// The font sizes for h1-h6.
-$h1-font-size: $base-font-size * 2.5;
-$h2-font-size: $base-font-size * 2.2;
-$h3-font-size: $base-font-size * 2;
-$h4-font-size: $base-font-size * 1.5;
-$h5-font-size: $base-font-size * 1.3;
-$h6-font-size: $base-font-size * 1.1;
-
-
-// ---------------- 04. Decorative details
-
-$border-radius: 4px;
-$button-transition-speed: 400ms;
-
-
-// ---------------- 05. Form layout options
-
-$label-color: $dark;
-$label-font-size: 1.8rem;
-
-$input-padding-y: 1.2rem;
-$input-padding-x: 1.2rem;
-
-$input-border-color: #ccc;
-$input-bg-color: #f6f6f6;
-$input-color: #333;
-
-$input-focus-border-color: #bbb;
-$input-focus-bg-color: $white;
-$input-focus-color: $dark;
-
-$input-error-color: #f00;
-$input-required-color: #f00;
-$input-accent-color: #09f;
-
-$gf-input-margin-y: 2.2rem;
-$gf-input-margin-x: 2rem;
-$gf-multi-input-margin-y: 0.8rem;
-
-$gf-primary-label-margin: 0.6rem;
-$gf-secondary-label-margin: 0.4rem;
-
-$gf-input-min-width: 18rem;
+$border-radius: 			3em;
+$button-transition-speed: 	200ms;
+$default-button-padding:	1.25rem 4rem;

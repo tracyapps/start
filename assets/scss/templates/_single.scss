@@ -12,72 +12,6 @@ header.article-header {
 
 
 
-//comment list
-
-#respond {
-	h3 {
-		font-size: 3rem;
-
-		small {
-			font-size: $base-font-size;
-			font-family: $sans-serif;
-			font-weight: normal;
-		}
-	}
-}
-
-ol.commentlist {
-	margin: 1em 0;
-	padding: 0;
-	list-style: none;
-
-	li {
-		padding: 0;
-		margin: 0;
-
-		.media-object {
-			padding: 1em;
-			display: flex;
-
-			.media-object-section {
-
-				> article {
-					padding: 0.5em 1em;
-					background: rgba( $secondary-color, 0.065 );
-					border-radius: 0 0 0 20px;
-				}
-
-				p {
-					padding: 0;
-
-					label {
-						left: 1.5rem;
-						top: -1.5rem;
-						background: $default-background-color;
-
-						@include tablet-down {
-							left: 1.25rem;
-						}
-
-					}
-				}
-
-				&:last-child {
-					flex: 1;
-				}
-			}
-		}
-
-
-		ul {
-			list-style: none;
-			margin: 0 0 0 3em;
-			padding: 0;
-		}
-	}
-
-}
-
 nav.next-and-previous-posts {
 	display: flex;
 	justify-content: space-between;
@@ -100,8 +34,8 @@ span.pulled-right {
 	font-size: 1.5em;
 	line-height: 1.3;
 	text-align: right;
-	color: lighten( $default-text-color, 10 );
-	border-left: 3px solid transparentize( $primary-color, 0.5 );
+
+	border-left: 3px solid var(--primary_button_background_color);
 
 	@include tablet-down {
 		width: 200px;
@@ -119,8 +53,8 @@ span.pulled-left {
 	font-size: 1.5em;
 	line-height: 1.3;
 	text-align: left;
-	color: lighten( $default-text-color, 10 );;
-	border-right: 3px solid transparentize( $primary-color, 0.5 );
+
+	border-right: 3px solid var(--primary_button_background_color);
 
 	@include tablet-down {
 		width: 200px;

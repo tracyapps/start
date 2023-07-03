@@ -30,20 +30,6 @@ img {
 }
 
 
-div.wp-caption {
-	background: $default-background-color;
-	border: 1px solid rgba( $secondary-color, 0.5 );
-	border-radius: 0 0 0 20px;
-	max-width: calc( 100% - 2px );
-
-	&.alignright {
-		max-width: 50%;
-	}
-	&.alignleft {
-		max-width: 50%;
-	}
-}
-
 img {
 	&.alignright {
 		float: right;

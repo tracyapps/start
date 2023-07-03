@@ -1,827 +1,850 @@
-//
-// Utilities
-//
-// What you will find here:
-// 01. General-use classes & Accessibility
-// 02. Mixins
-//	-- Style mixins
-//	-- Responsive mixins
-//	-- Gradients
-// 03. Keyframes
-// 04. Custom Block Color Themes
-
-// ---------------- 01. General-use classes & Accessibility
-
+/*
+* Scut, a collection of Sass utilities
+* to ease and improve our implementations of common style-code patterns.
+* v1.4.4
+* Docs at http://ramseyinhouse.github.io/scut
+*/
+@import "https://pro.fontawesome.com/releases/v5.8.1/css/all.css";
 .assistive-text,
 .visuallyhidden,
 .screen-reader-text {
-	position: absolute !important;
-	clip: rect(1px, 1px, 1px, 1px);
-	padding: 0 !important;
-	border: 0 !important;
-	height: 1px !important;
-	width: 1px !important;
-	overflow: hidden;
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
 }
 
 .cover-button {
-	display: flex;
-	flex-direction: column;
-	.wp-block-cover__inner-container {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-
-		h2 {
-			flex: 1;
-			height: 100%;
-			width: 100%;
-			margin: 0;
-			display: flex;
-
-			a {
-				flex: 1;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				border:1px solid transparent;
-
-				&:hover,
-				&:focus,
-				&:target {
-					background: rgba( 0, 0, 0, 0.4 );
-					border: 1px solid #fff;
-				}
-			}
-		}
-	}
+  display: flex;
+  flex-direction: column;
 }
-
-// ---------------- 02. Mixins
-// Style mixins
-
-// Responsive mixins
-// using breakpoint, but helping readability
-
-@mixin phone-only {
-	@include breakpoint($phone) {
-		@content;
-	}
+.cover-button .wp-block-cover__inner-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
-
-@mixin tablet-only {
-	@include breakpoint($tablet) {
-		@content;
-	}
+.cover-button .wp-block-cover__inner-container h2 {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
 }
-
-@mixin tablet-portrait {
-	@include breakpoint($tablet-portrait) {
-		@content;
-	}
+.cover-button .wp-block-cover__inner-container h2 a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
 }
-
-@mixin tablet-landscape {
-	@include breakpoint($tablet-landscape) {
-		@content;
-	}
+.cover-button .wp-block-cover__inner-container h2 a:hover, .cover-button .wp-block-cover__inner-container h2 a:focus, .cover-button .wp-block-cover__inner-container h2 a:target {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid #fff;
 }
-
-@mixin desktop-only {
-	@include breakpoint($desktop) {
-		@content;
-	}
-}
-
-@mixin large-desktop {
-	@include breakpoint($large-desktop) {
-		@content;
-	}
-}
-
-@mixin tablet-down {
-	@include breakpoint($tablet-portrait-down) {
-		@content;
-	}
-}
-
-@mixin tablet-up {
-	@include breakpoint($tablet-landscape-up) {
-		@content;
-	}
-}
-
-@mixin phone-landscape {
-	@include breakpoint($phone-landscape) {
-		@content;
-	}
-}
-
-
-// Gradients
-// from https://webgradients.com
-
-@mixin plum-gradient {
-	background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-@mixin grey-purple-gradient {
-	background-image: linear-gradient(to top, #505285 0%, #585e92 12%, #65689f 25%, #7474b0 37%, #7e7ebb 50%, #8389c7 62%, #9795d4 75%, #a2a1dc 87%, #b5aee4 100%);
-}
-
-@mixin dark-aqua-gradient {
-	background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
-}
-
-@mixin dark-blue-gradient {
-	background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
-}
-
-@mixin medium-blue-gradient {
-	background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
-}
-
-@mixin light-blue-gradient {
-	background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
-}
-
-@mixin green-gradient {
-	background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
-}
-
-@mixin orange-gradient {
-	background-image: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
-}
-
-@mixin sunset-gradient {
-	background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
-}
-
-@mixin light-grey-gradient {
-	background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-}
-
-// ---------------- 03. Functions
-
-@function hexToRGB($hex) {
-	@return red($hex), green($hex), blue($hex);
-}
-
-// ---------------- 04. Custom Block Color Themes
-
 
 .has-dark-brown-color {
-	color: #312b28;
+  color: #312b28;
 }
+
 .has-dark-brown-background-color {
-	background-color: #312b28;
+  background-color: #312b28;
 }
 
 .has-light-brown-color {
-	color: #8B7355;
+  color: #8B7355;
 }
+
 .has-light-brown-background-color {
-	background-color: #8B7355;
+  background-color: #8B7355;
 }
 
 .has-peach-color {
-	color: #F4A460;
+  color: #F4A460;
 }
+
 .has-peach-background-color {
-	background-color: #F4A460;
+  background-color: #F4A460;
 }
 
 .has-beige-color {
-	color: #CDC9A5;
+  color: #CDC9A5;
 }
+
 .has-beige-background-color {
-	background-color: #CDC9A5;
+  background-color: #CDC9A5;
 }
 
 .has-cream-color {
-	color: #FFE7BA;
+  color: #FFE7BA;
 }
+
 .has-cream-background-color {
-	background-color: #FFE7BA;
+  background-color: #FFE7BA;
 }
 
 .has-offwhite-color {
-	color: #F2F2F2;
+  color: #F2F2F2;
 }
+
 .has-offwhite-background-color {
-	background-color: #F2F2F2;
+  background-color: #F2F2F2;
 }
 
 .has-dark-grey-color {
-	color: #131212;
+  color: #131212;
 }
+
 .has-dark-grey-background-color {
-	background-color: #131212;
+  background-color: #131212;
 }
 
 .has-dark-grey-brown-color {
-	color: #34322e;
+  color: #34322e;
 }
+
 .has-dark-grey-brown-background-color {
-	background-color: #34322e;
+  background-color: #34322e;
 }
 
 .has-dark-green-color {
-	color: #364032;
+  color: #364032;
 }
+
 .has-dark-green-background-color {
-	background-color: #364032;
+  background-color: #364032;
 }
 
 .has-beige-color {
-	color: #CDC9A5;
+  color: #CDC9A5;
 }
+
 .has-beige-background-color {
-	background-color: #CDC9A5;
+  background-color: #CDC9A5;
 }
 
 .has-army-green-color {
-	color: #668C4A;
+  color: #668C4A;
 }
+
 .has-army-green-background-color {
-	background-color: #668C4A;
+  background-color: #668C4A;
 }
 
 .has-light-army-green-color {
-	color: #A6BF4B;
+  color: #A6BF4B;
 }
+
 .has-light-army-green-background-color {
-	background-color: #A6BF4B;
+  background-color: #A6BF4B;
 }
 
 .has-cream-yellow-color {
-	color: #F2F0D5;
+  color: #F2F0D5;
 }
+
 .has-cream-yellow-background-color {
-	background-color: #F2F0D5;
+  background-color: #F2F0D5;
 }
 
 .has-yellow-orange-color {
-	color: #F2C53D;
+  color: #F2C53D;
 }
+
 .has-yellow-orange-background-color {
-	background-color: #F2C53D;
+  background-color: #F2C53D;
 }
 
 .has-medium-grey-color {
-	color: #B1B1AC;
+  color: #B1B1AC;
 }
+
 .has-medium-grey-background-color {
-	background-color: #B1B1AC;
+  background-color: #B1B1AC;
 }
 
 .has-dark-maroon-color {
-	color: #281416;
+  color: #281416;
 }
+
 .has-dark-maroon-background-color {
-	background-color: #281416;
+  background-color: #281416;
 }
 
 .has-maroon-color {
-	color: #5c1d24;
+  color: #5c1d24;
 }
+
 .has-maroon-background-color {
-	background-color: #5c1d24;
+  background-color: #5c1d24;
 }
 
 .has-book-cover-brown-color {
-	color: #583F36;
+  color: #583F36;
 }
+
 .has-book-cover-brown-background-color {
-	background-color: #583F36;
+  background-color: #583F36;
 }
 
 .has-muddy-brown-color {
-	color: #715337;
+  color: #715337;
 }
+
 .has-muddy-brown-background-color {
-	background-color: #715337;
+  background-color: #715337;
 }
 
 .has-medium-grey-blue-color {
-	color: #677fa5;
+  color: #677fa5;
 }
+
 .has-medium-grey-blue-background-color {
-	background-color: #677fa5;
+  background-color: #677fa5;
 }
 
 .has-light-grey-blue-color {
-	color: #BFCAD8;
+  color: #BFCAD8;
 }
+
 .has-light-grey-blue-background-color {
-	background-color: #BFCAD8;
+  background-color: #BFCAD8;
 }
 
 .has-subtle-blue-color {
-	color: #EDF1F4;
+  color: #EDF1F4;
 }
+
 .has-subtle-blue-background-color {
-	background-color: #EDF1F4;
+  background-color: #EDF1F4;
 }
 
 .has-trendy-grey-color {
-	color: #666161;
+  color: #666161;
 }
+
 .has-trendy-grey-background-color {
-	background-color: #666161;
+  background-color: #666161;
 }
 
 .has-dusty-grey-color {
-	color: #ADA5A5;
+  color: #ADA5A5;
 }
+
 .has-dusty-grey-background-color {
-	background-color: #ADA5A5;
+  background-color: #ADA5A5;
 }
 
 .has-rusty-maroon-color {
-	color: #322323;
+  color: #322323;
 }
+
 .has-rusty-maroon-background-color {
-	background-color: #322323;
+  background-color: #322323;
 }
 
 .has-trendy-maroon-color {
-	color: #744140;
+  color: #744140;
 }
+
 .has-trendy-maroon-background-color {
-	background-color: #744140;
+  background-color: #744140;
 }
 
 .has-eggshell-color {
-	color: #F3E9D7;
+  color: #F3E9D7;
 }
+
 .has-eggshell-background-color {
-	background-color: #F3E9D7;
+  background-color: #F3E9D7;
 }
 
 .has-subtle-red-color {
-	color: #E6DADA;
+  color: #E6DADA;
 }
+
 .has-subtle-red-background-color {
-	background-color: #E6DADA;
+  background-color: #E6DADA;
 }
 
 /* country inn */
 .has-country-inn-dark-green-color {
-	color: #047D65; }
+  color: #047D65;
+}
 
 .has-country-inn-dark-green-background-color {
-	background-color: #047D65; }
+  background-color: #047D65;
+}
 
 .has-country-inn-lighter-green-color {
-	color: #01B36A;
+  color: #01B36A;
 }
+
 .has-country-inn-lighter-green-background-color {
-	background-color: #01B36A;
+  background-color: #01B36A;
 }
 
 /* add white */
-
 .has-country-inn-rust-color {
-	color: #914A3D;
+  color: #914A3D;
 }
+
 .has-country-inn-rust-background-color {
-	background-color: #914A3D;
+  background-color: #914A3D;
 }
+
 .has-country-inn-tan-color {
-	color: #A88548;
+  color: #A88548;
 }
+
 .has-country-inn-tan-background-color {
-	background-color: #A88548;
+  background-color: #A88548;
 }
+
 .has-country-inn-offwhite-color {
-	color: #F4F4D1;
+  color: #F4F4D1;
 }
+
 .has-country-inn-offwhite-background-color {
-	background-color: #F4F4D1;
+  background-color: #F4F4D1;
 }
+
 .has-country-inn-light-blue-color {
-	color: #A7CCD7;
+  color: #A7CCD7;
 }
+
 .has-country-inn-light-blue-background-color {
-	background-color: #A7CCD7;
+  background-color: #A7CCD7;
 }
+
 .has-country-inn-darkest-green-color {
-	color: #012E25;
+  color: #012E25;
 }
+
 .has-country-inn-darkest-green-background-color {
-	background-color: #012E25;
+  background-color: #012E25;
 }
+
 .has-country-inn-dark-rust-color {
-	color: #521B09;
+  color: #521B09;
 }
+
 .has-country-inn-dark-rust-background-color {
-	background-color: #521B09;
+  background-color: #521B09;
 }
 
 /* chocolate bunny */
-
 .has-chocolate-bunny-brown-color {
-	color: #663F20;
+  color: #663F20;
 }
+
 .has-chocolate-bunny-brown-background-color {
-	background-color: #663F20;
+  background-color: #663F20;
 }
+
 .has-chocolate-bunny-teal-color {
-	color: #2CBFB1;
+  color: #2CBFB1;
 }
+
 .has-chocolate-bunny-teal-background-color {
-	background-color: #2CBFB1;
+  background-color: #2CBFB1;
 }
+
 .has-chocolate-bunny-offwhite-color {
-	color: #FFFCF5;
+  color: #FFFCF5;
 }
+
 .has-chocolate-bunny-offwhite-background-color {
-	background-color:#FFFCF5 ;
+  background-color: #FFFCF5;
 }
+
 .has-chocolate-bunny-eggshell-color {
-	color: #EDE1D3;
+  color: #EDE1D3;
 }
+
 .has-chocolate-bunny-eggshell-background-color {
-	background-color: #EDE1D3;
+  background-color: #EDE1D3;
 }
+
 .has-chocolate-bunny-pink-color {
-	color: #E8356E;
+  color: #E8356E;
 }
+
 .has-chocolate-bunny-pink-background-color {
-	background-color: #E8356E;
+  background-color: #E8356E;
 }
+
 .has-chocolate-bunny-darker-brown-color {
-	color: #523D30;
+  color: #523D30;
 }
+
 .has-chocolate-bunny-darker-brown-background-color {
-	background-color: #523D30;
+  background-color: #523D30;
 }
+
 .has-chocolate-bunny-dark-teal-color {
-	color: #235157;
+  color: #235157;
 }
+
 .has-chocolate-bunny-dark-teal-background-color {
-	background-color: #235157;
+  background-color: #235157;
 }
+
 .has-chocolate-bunny-light-pink-color {
-	color: #F9E9EB;
+  color: #F9E9EB;
 }
+
 .has-chocolate-bunny-light-pink-background-color {
-	background-color: #F9E9EB;
+  background-color: #F9E9EB;
 }
 
 /* bold */
 .has-bold-medium-grey-color {
-	color: #878484;
-}
-.has-bold-medium-grey-background-color {
-	background-color: #878484;
-}
-.has-bold-red-color {
-	color: #FF0601;
-}
-.has-bold-red-background-color {
-	background-color: #FF0601;
-}
-.has-bold-offwhite-color {
-	color: #E6E1E1;
-}
-.has-bold-offwhite-background-color {
-	background-color: #E6E1E1;
-}
-.has-bold-rust-color {
-	color: #664948;
-}
-.has-bold-rust-background-color {
-	background-color: #664948;
-}
-.has-bold-black-color {
-	color: #000000;
-}
-.has-bold-black-background-color {
-	background-color: #000000;
-}
-.has-bold-almost-black-color {
-	color: #212121;
-}
-.has-bold-almost-black-background-color {
-	background-color: #212121;
+  color: #878484;
 }
 
+.has-bold-medium-grey-background-color {
+  background-color: #878484;
+}
+
+.has-bold-red-color {
+  color: #FF0601;
+}
+
+.has-bold-red-background-color {
+  background-color: #FF0601;
+}
+
+.has-bold-offwhite-color {
+  color: #E6E1E1;
+}
+
+.has-bold-offwhite-background-color {
+  background-color: #E6E1E1;
+}
+
+.has-bold-rust-color {
+  color: #664948;
+}
+
+.has-bold-rust-background-color {
+  background-color: #664948;
+}
+
+.has-bold-black-color {
+  color: #000000;
+}
+
+.has-bold-black-background-color {
+  background-color: #000000;
+}
+
+.has-bold-almost-black-color {
+  color: #212121;
+}
+
+.has-bold-almost-black-background-color {
+  background-color: #212121;
+}
 
 /* earthy */
 .has-earthy-teal-color {
-	color: #247A76;
+  color: #247A76;
 }
+
 .has-earthy-teal-background-color {
-	background-color: #247A76;
+  background-color: #247A76;
 }
+
 .has-earthy-light-green-color {
-	color: #9CAB16;
+  color: #9CAB16;
 }
+
 .has-earthy-light-green-background-color {
-	background-color: #9CAB16;
+  background-color: #9CAB16;
 }
+
 .has-earthy-cream-color {
-	color: #F7E7B7;
+  color: #F7E7B7;
 }
+
 .has-earthy-cream-background-color {
-	background-color: #F7E7B7;
+  background-color: #F7E7B7;
 }
+
 .has-earthy-orange-red-color {
-	color: #C23A34;
+  color: #C23A34;
 }
+
 .has-earthy-orange-red-background-color {
-	background-color: #C23A34;
+  background-color: #C23A34;
 }
+
 .has-earthy-rust-brown-color {
-	color: #613F1F;
+  color: #613F1F;
 }
+
 .has-earthy-rust-brown-background-color {
-	background-color: #613F1F;
+  background-color: #613F1F;
 }
+
 .has-earthy-dark-color {
-	color: #362D23;
+  color: #362D23;
 }
+
 .has-earthy-dark-background-color {
-	background-color: #362D23;
+  background-color: #362D23;
 }
+
 .has-earthy-lighter-green-color {
-	color: #C4D61C;
+  color: #C4D61C;
 }
+
 .has-earthy-lighter-green-background-color {
-	background-color: #C4D61C;
+  background-color: #C4D61C;
 }
+
 .has-earthy-offwhite-color {
-	color: #FEF6D6;
+  color: #FEF6D6;
 }
+
 .has-earthy-offwhite-background-color {
-	background-color: #FEF6D6;
+  background-color: #FEF6D6;
 }
+
 .has-earthy-brick-color {
-	color: #912D27;
+  color: #912D27;
 }
+
 .has-earthy-brick-background-color {
-	background-color: #912D27;
+  background-color: #912D27;
 }
-
-
 
 /* farmstead */
 .has-farmstead-teal-color {
-	color: #007A62;
-}
-.has-farmstead-teal-background-color {
-	background-color: #007A62;
-}
-.has-farmstead-green-color {
-	color: #7BB35D;
-}
-.has-farmstead-green-background-color {
-	background-color: #7BB35D;
-}
-.has-farmstead-cream-color {
-	color: #F0EBDF;
-}
-.has-farmstead-cream-background-color {
-	background-color: #F0EBDF;
-}
-.has-farmstead-tan-color {
-	color: #C4B18D;
-}
-.has-farmstead-tan-background-color {
-	background-color: #C4B18D;
-}
-.has-farmstead-medium-brown-color {
-	color: #A85745;
-}
-.has-farmstead-medium-brown-background-color {
-	background-color: #A85745;
-}
-.has-farmstead-dirt-brown-color {
-	color: #4F4739;
-}
-.has-farmstead-dirt-brown-background-color {
-	background-color: #4F4739;
-}
-.has-farmstead-yellow-green-color {
-	color: #99B32B;
-}
-.has-farmstead-yellow-green-background-color {
-	background-color: #99B32B;
-}
-.has-farmstead-mint-color {
-	color: #DFFACF;
-}
-.has-farmstead-mint-background-color {
-	background-color: #DFFACF;
-}
-.has-farmstead-darker-teal-color {
-	color: #004537;
-}
-.has-farmstead-darker-teal-background-color {
-	background-color: #004537;
+  color: #007A62;
 }
 
+.has-farmstead-teal-background-color {
+  background-color: #007A62;
+}
+
+.has-farmstead-green-color {
+  color: #7BB35D;
+}
+
+.has-farmstead-green-background-color {
+  background-color: #7BB35D;
+}
+
+.has-farmstead-cream-color {
+  color: #F0EBDF;
+}
+
+.has-farmstead-cream-background-color {
+  background-color: #F0EBDF;
+}
+
+.has-farmstead-tan-color {
+  color: #C4B18D;
+}
+
+.has-farmstead-tan-background-color {
+  background-color: #C4B18D;
+}
+
+.has-farmstead-medium-brown-color {
+  color: #A85745;
+}
+
+.has-farmstead-medium-brown-background-color {
+  background-color: #A85745;
+}
+
+.has-farmstead-dirt-brown-color {
+  color: #4F4739;
+}
+
+.has-farmstead-dirt-brown-background-color {
+  background-color: #4F4739;
+}
+
+.has-farmstead-yellow-green-color {
+  color: #99B32B;
+}
+
+.has-farmstead-yellow-green-background-color {
+  background-color: #99B32B;
+}
+
+.has-farmstead-mint-color {
+  color: #DFFACF;
+}
+
+.has-farmstead-mint-background-color {
+  background-color: #DFFACF;
+}
+
+.has-farmstead-darker-teal-color {
+  color: #004537;
+}
+
+.has-farmstead-darker-teal-background-color {
+  background-color: #004537;
+}
 
 /* harvest */
 .has-harvest-army-green-color {
-	color: #555C47;
-}
-.has-harvest-army-green-background-color {
-	background-color: #555C47;
-}
-.has-harvest-light-green-color {
-	color: #A19F43;
-}
-.has-harvest-light-green-background-color {
-	background-color: #A19F43;
-}
-.has-harvest-cream-color {
-	color: #FEF2D8;
-}
-.has-harvest-cream-background-color {
-	background-color: #FEF2D8;
-}
-.has-harvest-maroon-color {
-	color: #591507;
-}
-.has-harvest-maroon-background-color {
-	background-color: #591507;
-}
-.has-harvest-orange-red-color {
-	color: #D15401;
-}
-.has-harvest-orange-red-background-color {
-	background-color: #D15401;
-}
-.has-harvest-light-orange-color {
-	color: #FFA256;
-}
-.has-harvest-light-orange-background-color {
-	background-color: #FFA256;
-}
-.has-harvest-yellow-orange-color {
-	color: #FFC34F;
-}
-.has-harvest-yellow-orange-background-color {
-	background-color: #FFC34F;
+  color: #555C47;
 }
 
+.has-harvest-army-green-background-color {
+  background-color: #555C47;
+}
+
+.has-harvest-light-green-color {
+  color: #A19F43;
+}
+
+.has-harvest-light-green-background-color {
+  background-color: #A19F43;
+}
+
+.has-harvest-cream-color {
+  color: #FEF2D8;
+}
+
+.has-harvest-cream-background-color {
+  background-color: #FEF2D8;
+}
+
+.has-harvest-maroon-color {
+  color: #591507;
+}
+
+.has-harvest-maroon-background-color {
+  background-color: #591507;
+}
+
+.has-harvest-orange-red-color {
+  color: #D15401;
+}
+
+.has-harvest-orange-red-background-color {
+  background-color: #D15401;
+}
+
+.has-harvest-light-orange-color {
+  color: #FFA256;
+}
+
+.has-harvest-light-orange-background-color {
+  background-color: #FFA256;
+}
+
+.has-harvest-yellow-orange-color {
+  color: #FFC34F;
+}
+
+.has-harvest-yellow-orange-background-color {
+  background-color: #FFC34F;
+}
 
 /* neutral trend */
-
 .has-neutral-trend-dark-blue-color {
-	color: #4B4B5E;
+  color: #4B4B5E;
 }
+
 .has-neutral-trend-dark-blue-background-color {
-	background-color: #4B4B5E;
+  background-color: #4B4B5E;
 }
 
 has-neutral-trend-medium-grey-color {
-	color: #676782;
+  color: #676782;
 }
+
 .has-neutral-trend-medium-grey-background-color {
-	background-color: #676782;
+  background-color: #676782;
 }
+
 .has-neutral-trend-light-grey-color {
-	color: #C5C6C9;
+  color: #C5C6C9;
 }
+
 .has-neutral-trend-light-grey-background-color {
-	background-color: #C5C6C9;
+  background-color: #C5C6C9;
 }
+
 .has-neutral-trend-lighter-grey-color {
-	color: #D2D3D6;
+  color: #D2D3D6;
 }
+
 .has-neutral-trend-lighter-grey-background-color {
-	background-color: #D2D3D6;
+  background-color: #D2D3D6;
 }
+
 .has-neutral-trend-cream-color {
-	color: #FAF9ED;
+  color: #FAF9ED;
 }
+
 .has-neutral-trend-cream-background-color {
-	background-color: #FAF9ED;
+  background-color: #FAF9ED;
 }
+
 .has-neutral-trend-pink-color {
-	color: #FF9391;
+  color: #FF9391;
 }
+
 .has-neutral-trend-pink-background-color {
-	background-color: #FF9391;
+  background-color: #FF9391;
 }
+
 .has-neutral-trend-rose-color {
-	color: #CC4545;
+  color: #CC4545;
 }
+
 .has-neutral-trend-rose-background-color {
-	background-color: #CC4545;
+  background-color: #CC4545;
 }
+
 .has-neutral-trend-dark-grey-color {
-	color: #4E5563;
+  color: #4E5563;
 }
+
 .has-neutral-trend-dark-grey-background-color {
-	background-color: #4E5563;
+  background-color: #4E5563;
 }
-
-
 
 /* neutral yellow */
 .has-neutral-yellow-dark-grey-color {
-	color: #545247;
-}
-.has-neutral-yellow-dark-grey-background-color {
-	background-color: #545247;
-}
-.has-neutral-yellow-medium-grey-color {
-	color: #918F86;
-}
-.has-neutral-yellow-medium-grey-background-color {
-	background-color: #918F86;
-}
-.has-neutral-yellow-light-grey-color {
-	color: #D1CEC0;
-}
-.has-neutral-yellow-light-grey-background-color {
-	background-color: #D1CEC0;
-}
-.has-neutral-yellow-cream-color {
-	color: #FDF6DD;
-}
-.has-neutral-yellow-cream-background-color {
-	background-color: #FDF6DD;
-}
-.has-neutral-yellow-yellow-color {
-	color: #FACC52;
-}
-.has-neutral-yellow-yellow-background-color {
-	background-color: #FACC52;
-}
-.has-neutral-yellow-yellow-orange-color {
-	color: #e89d2f;
-}
-.has-neutral-yellow-yellow-orange-background-color {
-	background-color: #e89d2f;
+  color: #545247;
 }
 
+.has-neutral-yellow-dark-grey-background-color {
+  background-color: #545247;
+}
+
+.has-neutral-yellow-medium-grey-color {
+  color: #918F86;
+}
+
+.has-neutral-yellow-medium-grey-background-color {
+  background-color: #918F86;
+}
+
+.has-neutral-yellow-light-grey-color {
+  color: #D1CEC0;
+}
+
+.has-neutral-yellow-light-grey-background-color {
+  background-color: #D1CEC0;
+}
+
+.has-neutral-yellow-cream-color {
+  color: #FDF6DD;
+}
+
+.has-neutral-yellow-cream-background-color {
+  background-color: #FDF6DD;
+}
+
+.has-neutral-yellow-yellow-color {
+  color: #FACC52;
+}
+
+.has-neutral-yellow-yellow-background-color {
+  background-color: #FACC52;
+}
+
+.has-neutral-yellow-yellow-orange-color {
+  color: #e89d2f;
+}
+
+.has-neutral-yellow-yellow-orange-background-color {
+  background-color: #e89d2f;
+}
 
 /* trendy rainbow */
 .has-trendy-rainbow---bold-purple-color {
-	color: #49415C;
+  color: #49415C;
 }
+
 .has-trendy-rainbow---bold-purple-background-color {
-	background-color: #49415C;
+  background-color: #49415C;
 }
+
 .has-trendy-rainbow---bold-blue-color {
-	color: #4F5FC7;
+  color: #4F5FC7;
 }
+
 .has-trendy-rainbow---bold-blue-background-color {
-	background-color: #4F5FC7;
+  background-color: #4F5FC7;
 }
+
 .has-trendy-rainbow---bold-green-color {
-	color: #8EB52A;
+  color: #8EB52A;
 }
+
 .has-trendy-rainbow---bold-green-background-color {
-	background-color: #8EB52A;
+  background-color: #8EB52A;
 }
+
 .has-trendy-rainbow---bold-yellow-color {
-	color: #FFD154;
+  color: #FFD154;
 }
+
 .has-trendy-rainbow---bold-yellow-background-color {
-	background-color: #FFD154;
+  background-color: #FFD154;
 }
+
 .has-trendy-rainbow---bold-pink-color {
-	color: #F02874;
+  color: #F02874;
 }
+
 .has-trendy-rainbow---bold-pink-background-color {
-	background-color: #F02874;
+  background-color: #F02874;
 }
 
 /* vintage rocket */
 .has-vintage-rocket-light-blue-color {
-	color: #B1D3D1;
+  color: #B1D3D1;
 }
+
 .has-vintage-rocket-light-blue-background-color {
-	background-color: #B1D3D1;
+  background-color: #B1D3D1;
 }
+
 .has-vintage-rocket-cream-color {
-	color: #F4F3E3;
+  color: #F4F3E3;
 }
+
 .has-vintage-rocket-cream-background-color {
-	background-color: #F4F3E3;
+  background-color: #F4F3E3;
 }
+
 .has-vintage-rocket-tan-color {
-	color: #F0CE86;
+  color: #F0CE86;
 }
+
 .has-vintage-rocket-tan-background-color {
-	background-color: #F0CE86;
+  background-color: #F0CE86;
 }
+
 .has-vintage-rocket-orange-color {
-	color: #E43604;
+  color: #E43604;
 }
+
 .has-vintage-rocket-orange-background-color {
-	background-color: #E43604;
+  background-color: #E43604;
 }
+
 .has-vintage-rocket-deep-red-color {
-	color: #230800;
+  color: #230800;
 }
+
 .has-vintage-rocket-deep-red-background-color {
-	background-color: #230800;
+  background-color: #230800;
 }
+/*# sourceMappingURL=block_styles.css.map */

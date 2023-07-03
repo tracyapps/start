@@ -12,22 +12,20 @@
 html {
 	font-size: 62.5%;
 }
+* {
+	box-sizing: border-box;
+}
 
 body {
-	font-size: $base-font-size;
+	font-size: var(--typography-base_font_size);
 	margin: 0;
-	background-color: $default-background-color;
-	color: $default-text-color;
-	font-family: $body-font;
-	font-style: normal;
-	font-weight: 300;
-	max-width: 100vw;
-	overflow-x: hidden;
-
+	font-family: var(--typography-body_text);
 	-webkit-tap-highlight-color: #ff0;
+	background-color: var(--body--background_color);
+	color: var(--body--text_color);
 
 	@include phone-only {
-		font-size: calc( #{$base-font-size} / 1.3 );
+		//		font-size: calc( var(--typography-body_text) * .9 );
 		line-height: 1.2;
 	}
 
@@ -49,12 +47,13 @@ body {
 }
 
 a {
-	color: $default-link-color;
+	color: var(--body--link_color);
+	transition: all $button-transition-speed ease-in-out;
 
 	&:hover,
 	&:focus,
 	&:active {
-		color: $default-link-color-hover;
+		color: var(--body--link_color_hover);
 	}
 }
 
@@ -90,29 +89,60 @@ blockquote {
 	}
 }
 
-.inverse {
-	@include inverse-colors;
-}
 
+
+.wp-block-button__link,
 .button,
+a.button,
 input[type="submit"],
-button {
-	@include button-primary;
-	text-shadow: none;
-	font-weight: bold;
-	border: none;
-	outline: none;
+button,
+a.wp-block-button__link {
+
+	transition: all $button-transition-speed ease-in-out;
+	background: var(--button--background_color);
+	color: var(--button--text_color);
+
+	&:hover,
+	&:focus,
+	&:visited:hover {
+		background: var(--button_hover--background_color);
+		color: var(--button_hover--text_color);
+	}
+
+
 
 	&.full {
 		display: block;
 		text-align: center;
 	}
 
+
+	&.text_link {
+		background: none;
+		color: var(--body--link_color);
+
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: var(--body--link_color_hover);
+		}
+	}
+
+	.is-style-outline & {
+		border-color: var(--button--background_color);
+		color: var(--button--background_color);
+
+		&:hover,
+		&:focus,
+		&:visited:hover {
+			border-color: var(--button_hover--background_color);
+			color: var(--button_hover--background_color);
+		}
+	}
 }
 
-.learn-more-button {
-	padding-bottom: 2rem;
-}
+
 
 .padding {
 	padding: 4rem;
@@ -121,10 +151,7 @@ button {
 .centered-text {
 	text-align: center;
 }
-a.no-style {
-	color: $default-text-color;
-	text-decoration: none;
-}
+
 
 
 
@@ -135,59 +162,84 @@ h1,
 h2,
 h3,
 h4,
-h5 {
-	font-family: $header-font;
-	font-weight: 300;
-	text-transform: capitalize;
+h5,
+h6 {
 	margin-bottom: 0.3em;
+	line-height: 1.1;
+	font-family: var(--typography-header_text);
+	padding-left: 2rem;
+	padding-right: 2rem;
+	max-width: $max-text-line-width;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+p {
+	padding-left: 2rem;
+	padding-right: 2rem;
+	max-width: $max-text-line-width;
+	margin-left: auto;
+	margin-right: auto;
+}
+blockquote{
+	max-width: $max-text-line-width;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.page-content ul,
+.page-content ol {
+	max-width: $max-text-line-width;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 h1 {
-	font-size: $h1-font-size;
+	font-size: var(--typography-h1_size);
+	line-height: 1;
 
 	@include phone-only {
-		font-size: calc( #{$h1-font-size} / 1.3 );
+		font-size: calc( var(--typography-h1_size) * .8 );
 	}
 }
 
 h2 {
-	font-size: $h2-font-size;
+	font-size: var(--typography-h2_size);
 
 	@include phone-only {
-		font-size: calc( #{$h2-font-size} / 1.3 );
+		font-size: calc( var(--typography-h2_size) * .8 );
 	}
 }
 
 h3 {
-	font-size: $h3-font-size;
+	font-size: var(--typography-h3_size);
 
 	@include phone-only {
-		font-size: calc( #{$h3-font-size} / 1.3 );
+		font-size: calc( var(--typography-h3_size) * .8 );
 	}
 }
 
 h4 {
-	font-size: $h4-font-size;
+	font-size: var(--typography-h4_size);
 
 	@include phone-only {
-		font-size: calc( #{$h4-font-size} / 1.3 );
+		font-size: calc( var(--typography-h4_size) * .8 );
 	}
 }
 
 h5 {
-	font-size: $h5-font-size;
+	font-size: var(--typography-h5_size);
 
 	@include phone-only {
-		font-size: calc( #{$h5-font-size} / 1.3 );
+		font-size: calc( var(--typography-h5_size) * .8 );
 	}
 }
 
 h6 {
-	font-size: $h6-font-size;
-	margin: 1em 0 0 0;
+	font-size: var(--typography-h6_size);
 
 	@include phone-only {
-		font-size: calc( #{$h6-font-size} / 1.3 );
+		font-size: calc( var(--typography-h6_size) * .8 );
 	}
 }
 
@@ -197,8 +249,3 @@ h6 {
 
 
 // ---------------- 04. SVG backgrounds / patterns
-
-.plain-bg {
-	background: $default-background-color;
-	@include default-colors;
-}

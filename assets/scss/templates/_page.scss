@@ -1,104 +1,57 @@
-
-.page-title {
-	display: block;
-	text-align: center;
+.page_featured_image_container {
+	min-height: 33vh;
 	position: relative;
-	overflow: hidden;
-	margin: 1em 0 0 0;
-	padding-top: 3rem;
-	line-height: 1.2;
-	font-size: 4em;
-	letter-spacing: -1px;
 
-	@include phone-only {
-		font-size: 3em;
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: -1;
 	}
 
-	.smaller {
-		font-size: 3rem;
-		display: block;
-		clear: both;
-		letter-spacing: 0;
-		font-family: $sans-serif;
-		font-weight: normal;
-		margin-bottom: -3rem;
-	}
-
-}
-
-.centered-title {
-	text-align: center;
-}
-
-// Services landing page (page child pages)
-
-.page-children-grid {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: flex-start;
-	justify-items: center;
-	justify-content: center;
-
-	.child-page-box {
+	.page_heading_area {
+		padding: 8em 2em 2em 2em;
+		z-index: 99;
+		position: relative;
 		text-align: center;
-		margin: 1em 3vw;
-		width: 15vw;
-		min-width: 200px;
-		max-width: 390px;
 
-		@include phone-only {
-			width: auto;
-		}
-
-		h6 {
-			padding-top: 0.75em;
-			margin: 0;
-			line-height: 1.2;
-
-			a {
-				color: $default-text-color;
-				text-decoration: none;
-
-				&:hover {
-					color: $default-link-color-hover;
-				}
-			}
-
-		}
-
-		.child-page-link {
-			width: 15vw;
-			height: 15vw;
-
-			min-width: 200px;
-			min-height: 200px;
-
-			max-width: 390px;
-			max-height: 390px;
-			transition: all 300ms ease-in-out;
-
-
-
-			&.round {
-				border-radius: 50%;
-				box-shadow: 1px 1px 0 rgba( darken( $dark, 30 ), 0.5 );
-
-				svg {
-					fill: $default-background-color !important;
-					height: 65%;
-					width: 65%;
-					margin: 18% auto;
-
-					filter: drop-shadow(0 1px 0 rgba( darken( $dark, 30 ), 0.25) ) url(#inset-shadow);
-				}
-			}
-
-			&:hover {
-				transform: scale( 1.1 );
-
-			}
-		}
 	}
 }
 
+.page_title,
+h1.page_title,
+h2.page_title {
+	font-size: var(--typography-h1_size);
+	font-weight: 800;
+	margin-top: 0;
+	line-height: 1;
+	text-align: center;
+	color: var(--page_header--page_title);
+	padding: 0.3em 10px 0.15em 10px;
 
+	.no-featured-image & {
+		padding-top: 2.2em;
+
+	}
+}
+
+.page_tagline {
+	color: var(--page_header--page_tagline);
+	font-size: 1.3em;
+	font-weight: 500;
+	line-height: 1.5;
+	padding-bottom: 2.75em;
+
+	.no-featured-image & {
+
+	}
+}
+
+.no-featured-image .page_heading_area {
+	padding-bottom: 2em;
+}

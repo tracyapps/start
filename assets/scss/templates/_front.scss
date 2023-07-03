@@ -1,0 +1,80 @@
+
+.homepage_hero-container {
+	height: 85vh;
+	width: 100%;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	display: flex;
+
+	// height settings
+	&.two-thirds-height {
+		height: 67vh;
+	}
+	&.one-half-height {
+		height: 45vh;
+
+		.homepage_hero_text {
+			width: 90%;
+			max-width: 520px;
+			font-size: 90%;
+			h1 {
+				font-size: calc( var(--type_opt-base_font_size) * 2.5 );
+			}
+		}
+	}
+
+	@include phone-only {
+		min-height: 110vh;
+		display: block;
+	}
+
+
+	// text position settings
+	&.left-side {
+		text-align: left;
+		justify-content: flex-start;
+		padding-left: 20%;
+	}
+	&.right-side {
+		text-align: right;
+		justify-content: flex-end;
+		padding-right: 25%;
+	}
+	&.align-top {
+		align-items: flex-start;
+		padding-top: 5%;
+	}
+	&.align-middle {
+		align-items: center;
+	}
+	&.align-bottom {
+		align-items: flex-end;
+		padding-bottom: 10%;
+	}
+
+	@include phone-only {
+		&.left-side,
+		&.right-side {
+			padding-left:5%;
+			padding-right: 15%;
+		}
+
+		&.align-top,
+		&.align-middle,
+		&.align-bottom {
+			padding-top: 60px;
+			padding-bottom: 2rem;
+		}
+	}
+
+
+	.homepage_hero_text {
+		width: 80%;
+		max-width: 480px;
+
+		h1 {
+			margin-top: 0;
+		}
+	}
+}
